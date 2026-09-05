@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 import { initialLeads, programsData, articlesData, galleryData } from "@/data/mockData";
 import { formatWhatsAppUrl, formatDateIndo } from "@/lib/utils";
+import { CardBackground } from "@/components/ui/card";
 
 export default function AdminDashboardPage() {
   const [leads, setLeads] = useState(initialLeads);
@@ -71,17 +72,18 @@ export default function AdminDashboardPage() {
     <div className="space-y-8">
       
       {/* Welcome Banner */}
-      <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-6">
-        <div className="space-y-1">
-          <h2 className="text-2xl font-black text-slate-900 tracking-tight">
-            Dashboard Pengelola Wissen-Kids
-          </h2>
+      <div className="card-elevation relative overflow-hidden p-6 sm:p-8 flex flex-col md:flex-row md:items-center justify-between gap-6">
+        <CardBackground />
+        <div className="relative z-10 space-y-1">
+          <h1 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
+            Dashboard Pengelola Wissen Kids Center
+          </h1>
           <p className="text-xs sm:text-sm text-slate-500">
             Pantau arus calon murid baru, jadwal free trial, dan pembaruan konten website secara langsung.
           </p>
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="relative z-10 flex items-center gap-3">
           <Link
             href="/admin/leads"
             className="px-4 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs shadow-xs transition-colors flex items-center gap-1.5"
@@ -106,40 +108,45 @@ export default function AdminDashboardPage() {
           return (
             <div
               key={i}
-              className="bg-white p-6 rounded-3xl border border-slate-200 shadow-xs space-y-3"
+              className="card-elevation relative overflow-hidden p-6 space-y-3"
             >
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-bold text-slate-500">{st.title}</span>
-                <span className={`p-2 rounded-xl border ${st.color}`}>
-                  <Icon className="w-4 h-4" />
-                </span>
+              <CardBackground />
+              <div className="relative z-10 space-y-3">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-bold text-slate-500">{st.title}</span>
+                  <span className={`p-2 rounded-xl border ${st.color}`}>
+                    <Icon className="w-4 h-4" />
+                  </span>
+                </div>
+                <p className="text-3xl font-black text-slate-900 tracking-tight">{st.value}</p>
+                <p className="text-xs text-slate-400">{st.subtext}</p>
               </div>
-              <p className="text-3xl font-black text-slate-900 tracking-tight">{st.value}</p>
-              <p className="text-xs text-slate-400">{st.subtext}</p>
             </div>
           );
         })}
       </div>
 
       {/* Recent Leads Table */}
-      <div className="bg-white rounded-3xl border border-slate-200 shadow-xs overflow-hidden">
-        <div className="p-6 border-b border-slate-100 flex items-center justify-between">
-          <div>
-            <h3 className="text-base font-bold text-slate-900">
-              Pendaftar Free Trial Terbaru
-            </h3>
-            <p className="text-xs text-slate-400">
-              Calon murid yang mengajukan coba kelas melalui formulir website
-            </p>
+      <div className="card-elevation relative overflow-hidden">
+        <CardBackground />
+        <div className="relative z-10">
+          <div className="p-6 border-b border-slate-100 flex items-center justify-between">
+            <div>
+              <h3 className="text-base font-bold text-slate-900">
+                Pendaftar Free Trial Terbaru
+              </h3>
+              <p className="text-xs text-slate-400">
+                Calon murid yang mengajukan coba kelas melalui formulir website
+              </p>
+            </div>
+            <Link
+              href="/admin/leads"
+              className="text-xs font-bold text-blue-600 hover:text-blue-700 flex items-center gap-1"
+            >
+              <span>Selengkapnya</span>
+              <ArrowUpRight className="w-4 h-4" />
+            </Link>
           </div>
-          <Link
-            href="/admin/leads"
-            className="text-xs font-bold text-blue-600 hover:text-blue-700 flex items-center gap-1"
-          >
-            <span>Selengkapnya</span>
-            <ArrowUpRight className="w-4 h-4" />
-          </Link>
-        </div>
 
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs text-slate-600">
@@ -156,7 +163,7 @@ export default function AdminDashboardPage() {
               {leads.map((lead) => {
                 const waUrl = formatWhatsAppUrl(
                   lead.whatsappNumber,
-                  `Halo Bapak/Ibu ${lead.parentName}, kami dari Wissen-Kids ingin mengonfirmasi jadwal free trial untuk ananda ${lead.childName}.`
+                  `Halo Bapak/Ibu ${lead.parentName}, kami dari Wissen Kids Center ingin mengonfirmasi jadwal free trial untuk ananda ${lead.childName}.`
                 );
 
                 return (
@@ -206,6 +213,7 @@ export default function AdminDashboardPage() {
               })}
             </tbody>
           </table>
+        </div>
         </div>
       </div>
 

@@ -17,6 +17,8 @@ import {
   Calendar,
   Gift
 } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { CardBackground } from "@/components/ui/card";
 
 function RegisterFormContent() {
   const searchParams = useSearchParams();
@@ -70,7 +72,7 @@ function RegisterFormContent() {
       .map((slug) => programsData.find((p) => p.slug === slug)?.title || slug)
       .join(", ");
 
-    const text = `Halo Admin Wissen-Kids! Saya ingin mendaftarkan anak saya untuk sesi Free Trial:
+    const text = `Halo Admin Wissen Kids Center! Saya ingin mendaftarkan anak saya untuk sesi Free Trial:
 • Nama Orang Tua: ${parentName}
 • No. WhatsApp: ${whatsapp}
 • Nama Anak: ${childName} (${childAge})
@@ -86,36 +88,38 @@ Mohon informasi jadwal yang tersedia ya, terima kasih!`;
   };
 
   return (
-    <div className="py-12 sm:py-16 bg-slate-50 min-h-screen">
+    <div className="py-12 sm:py-16 min-h-screen">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-10">
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black text-black tracking-tight">
             Pendaftaran & Booking Coba Kelas
           </h1>
-          <p className="text-slate-600 text-sm sm:text-base mt-3">
+          <p className="text-black font-semibold text-sm sm:text-base mt-2.5 leading-relaxed">
             Isi formulir singkat di bawah ini. Tim kami akan segera mengonfirmasi jadwal coba kelas gratis untuk ananda tercinta.
           </p>
         </div>
 
         {/* Success State */}
         {isSubmitted ? (
-          <div className="bg-white rounded-3xl p-8 sm:p-12 border border-emerald-200 shadow-xl text-center space-y-6 animate-in zoom-in-95 duration-300">
-            <div className="w-20 h-20 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto shadow-md">
-              <CheckCircle2 className="w-10 h-10 stroke-[2.5]" />
+          <div className="card-elevation p-6 sm:p-10 lg:p-12 text-center space-y-6 animate-in zoom-in-95 duration-300 relative overflow-hidden">
+            <CardBackground rows={14} cols={10} tileSize="md" />
+            <div className="relative z-10 space-y-6">
+            <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto shadow-md">
+              <CheckCircle2 className="w-8 h-8 sm:w-10 sm:h-10 stroke-[2.5]" />
             </div>
 
             <div className="space-y-2">
-              <h2 className="text-2xl sm:text-3xl font-black text-slate-900">
+              <h2 className="text-xl sm:text-2xl lg:text-3xl font-black text-slate-900">
                 Pendaftaran Berhasil Terkirim! 🎉
               </h2>
-              <p className="text-sm sm:text-base text-slate-600 max-w-lg mx-auto">
+              <p className="text-xs sm:text-sm md:text-base text-slate-600 max-w-lg mx-auto">
                 Terima kasih Bunda / Ayah <strong>{parentName}</strong>. Data ananda <strong>{childName}</strong> telah kami terima.
               </p>
             </div>
 
-            <div className="p-5 rounded-2xl bg-blue-50 border border-blue-100 max-w-md mx-auto text-left text-xs text-slate-700 space-y-1.5">
+            <div className="p-4 sm:p-5 rounded-2xl bg-blue-50 border border-blue-100 max-w-md mx-auto text-left text-xs text-slate-700 space-y-1.5">
               <p className="font-bold text-blue-900">Ringkasan Pendaftaran:</p>
               <p>• Anak: {childName} ({childAge})</p>
               <p>• Pilihan Program: {selectedPrograms.join(", ")}</p>
@@ -123,15 +127,17 @@ Mohon informasi jadwal yang tersedia ya, terima kasih!`;
             </div>
 
             <div className="space-y-3 pt-2">
-              <a
+              <Button
                 href={generatedWaUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2.5 w-full sm:w-auto px-8 py-4 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-sm sm:text-base shadow-lg shadow-emerald-600/25 transition-all"
+                variant="whatsapp"
+                size="lg"
+                className="w-full sm:w-auto"
               >
                 <MessageCircle className="w-5 h-5 fill-current" />
                 <span>Konfirmasi Langsung ke WhatsApp Admin</span>
-              </a>
+              </Button>
               <p className="text-xs text-slate-400">
                 Klik tombol di atas untuk membuka pesan otomatis di WhatsApp admin kami.
               </p>
@@ -151,13 +157,16 @@ Mohon informasi jadwal yang tersedia ya, terima kasih!`;
             >
               ← Isi Formulir untuk Anak Lainnya
             </button>
+            </div>
           </div>
         ) : (
           /* Form State */
           <form
             onSubmit={handleSubmit}
-            className="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-xl space-y-8"
+            className="card-elevation p-5 sm:p-8 lg:p-10 space-y-6 sm:space-y-8 relative overflow-hidden"
           >
+            <CardBackground rows={16} cols={10} tileSize="md" />
+            <div className="relative z-10 space-y-6 sm:space-y-8">
             {/* Step 1: Data Orang Tua */}
             <div className="space-y-4">
               <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2 flex items-center gap-2">
@@ -278,10 +287,10 @@ Mohon informasi jadwal yang tersedia ya, terima kasih!`;
                       }`}
                     >
                       <div className="overflow-hidden">
-                        <p className="text-xs sm:text-sm font-bold text-slate-900 truncate">
+                        <p className="text-xs sm:text-sm font-black text-black truncate">
                           {prog.title}
                         </p>
-                        <p className="text-[11px] text-slate-500">
+                        <p className="text-[11px] text-black font-semibold">
                           {prog.ageGroup}
                         </p>
                       </div>
@@ -302,7 +311,7 @@ Mohon informasi jadwal yang tersedia ya, terima kasih!`;
 
             {/* Step 4: Preferensi Tipe Kelas & Catatan */}
             <div className="space-y-4">
-              <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2 flex items-center gap-2">
+              <h2 className="text-lg font-black text-black border-b border-slate-200 pb-2 flex items-center gap-2">
                 <span className="w-6 h-6 rounded-full bg-blue-600 text-white text-xs flex items-center justify-center font-black">
                   4
                 </span>
@@ -320,18 +329,18 @@ Mohon informasi jadwal yang tersedia ya, terima kasih!`;
                     onClick={() => setClassPreference(item.id)}
                     className={`p-3.5 rounded-2xl border text-center cursor-pointer transition-all ${
                       classPreference === item.id
-                        ? "border-blue-600 bg-blue-50 text-blue-900 font-bold shadow-xs"
-                        : "border-slate-200 bg-slate-50 text-slate-700 hover:bg-slate-100"
+                        ? "border-blue-600 bg-blue-50 text-black font-black shadow-xs"
+                        : "border-slate-300 bg-slate-50 text-black font-bold hover:bg-slate-100"
                     }`}
                   >
-                    <p className="text-xs sm:text-sm font-bold">{item.title}</p>
-                    <p className="text-[11px] text-slate-500 mt-0.5">{item.desc}</p>
+                    <p className="text-xs sm:text-sm font-black">{item.title}</p>
+                    <p className="text-[11px] text-black font-medium mt-0.5">{item.desc}</p>
                   </label>
                 ))}
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-slate-700 mb-1.5">
+                <label className="block text-xs font-black text-black mb-1.5">
                   Catatan Tambahan (Hari yang diinginkan / Karakter anak)
                 </label>
                 <textarea
@@ -339,25 +348,27 @@ Mohon informasi jadwal yang tersedia ya, terima kasih!`;
                   placeholder="Contoh: Anak agak pemalu, lebih leluasa di jadwal sore jam 15.00 WIB."
                   value={notes}
                   onChange={(e) => setNotes(e.target.value)}
-                  className="w-full p-3.5 rounded-xl bg-slate-50 border border-slate-200 text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white"
+                  className="w-full p-3.5 rounded-xl bg-slate-50 border border-slate-300 text-sm text-black font-medium placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white"
                 />
               </div>
             </div>
 
             {/* Submit Button */}
-            <div className="pt-4 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4">
-              <div className="flex items-center gap-2 text-xs text-slate-500">
+            <div className="pt-4 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+              <div className="flex items-center gap-2 text-xs text-black font-semibold">
                 <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
                 <span>Privasi data Anda terjamin aman & tanpa spam</span>
               </div>
 
-              <button
+              <Button
                 type="submit"
-                className="w-full sm:w-auto px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-black text-sm sm:text-base shadow-lg shadow-blue-500/25 hover:shadow-xl transition-all flex items-center justify-center gap-2"
+                size="lg"
+                className="w-full sm:w-auto"
               >
                 <Sparkles className="w-5 h-5 text-amber-300" />
                 <span>Kirim Pendaftaran Free Trial</span>
-              </button>
+              </Button>
+            </div>
             </div>
           </form>
         )}

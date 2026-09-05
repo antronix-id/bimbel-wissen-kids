@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
+import AppBackground from "@/components/shared/AppBackground";
+import ScrollToTop from "@/components/shared/ScrollToTop";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -9,11 +11,12 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Wissen-Kids | Bimbingan Belajar & Stimulasi Cerdas Usia 2 Tahun - SMP",
+  title: "Wissen Kids Center | Bimbingan Belajar & Stimulasi Cerdas Usia 2 Tahun - SMP",
   description:
-    "Lembaga bimbingan belajar dan stimulasi anak usia 2 tahun hingga SMP. Tersedia paket Simulation & Activity, Calistung, English, Sempoa, Bimbel SD, SMP, Mengaji, dan Art & Craft.",
+    "Lembaga bimbingan belajar dan stimulasi anak usia 2 tahun hingga SMP. Tersedia paket Simulation & Activity, Calistung, English, Sempoa, Bimbel SD, SMP, Mengaji, dan Art & Craft di Wissen Kids Center.",
   keywords: [
     "bimbel anak",
+    "wissen kids center",
     "bimbel wissen kids",
     "les baca tulis hitung",
     "calistung toddler",
@@ -23,7 +26,9 @@ export const metadata: Metadata = {
     "les mengaji",
   ],
   icons: {
-    icon: "/favicon.ico",
+    icon: "/logo.avif",
+    shortcut: "/logo.avif",
+    apple: "/logo.avif",
   },
 };
 
@@ -34,8 +39,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="id" className={`${plusJakartaSans.variable} scroll-smooth`}>
-      <body className="font-sans antialiased min-h-screen bg-slate-50 text-slate-900 selection:bg-blue-600 selection:text-white flex flex-col">
-        {children}
+      <body className="font-sans antialiased min-h-screen text-black selection:bg-blue-600 selection:text-white flex flex-col">
+        <ScrollToTop />
+        <AppBackground>
+          {children}
+        </AppBackground>
       </body>
     </html>
   );

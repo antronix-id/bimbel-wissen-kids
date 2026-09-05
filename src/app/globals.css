@@ -3,11 +3,12 @@
 @layer base {
   :root {
     --background: #f8fafc;
-    --foreground: #0f172a;
-    --primary: #2563eb;
-    --primary-hover: #1d4ed8;
+    --foreground: #000000;
+    --primary: #2b9413;
+    --primary-hover: #22840d;
     --accent: #f59e0b;
     --accent-hover: #d97706;
+    --tile: rgba(43, 148, 19, 0.15);
   }
 }
 
@@ -35,4 +36,49 @@
   background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
+}
+
+/* Card Elevation Style (Consistent across all cards) */
+.card-elevation {
+  background-color: #ffffff;
+  border-radius: 1.5rem; /* rounded-3xl */
+  box-shadow: 11px 21px 3px rgba(0, 0, 0, 0.06),
+              14px 27px 7px rgba(0, 0, 0, 0.10),
+              19px 38px 14px rgba(0, 0, 0, 0.13),
+              27px 54px 27px rgba(0, 0, 0, 0.16),
+              39px 78px 50px rgba(0, 0, 0, 0.20),
+              55px 110px 86px rgba(0, 0, 0, 0.26);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s ease;
+}
+
+.card-elevation-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 13px 25px 4px rgba(0, 0, 0, 0.07),
+              17px 32px 9px rgba(0, 0, 0, 0.11),
+              23px 45px 17px rgba(0, 0, 0, 0.15),
+              32px 64px 32px rgba(0, 0, 0, 0.18),
+              46px 92px 59px rgba(0, 0, 0, 0.22),
+              65px 130px 101px rgba(0, 0, 0, 0.28);
+}
+
+:is(.dark) .card-elevation {
+  background-color: #000000;
+}
+
+@keyframes infinite-scroll-vertical {
+  from {
+    transform: translateY(0%);
+  }
+  to {
+    transform: translateY(-50%);
+  }
+}
+
+@keyframes infinite-scroll-horizontal {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }

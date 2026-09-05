@@ -17,7 +17,7 @@ export default function AdminArticlesPage() {
     category: "Tips Parenting",
     summary: "",
     content: "",
-    authorName: "Tim Pendidik Wissen-Kids",
+    authorName: "Tim Pendidik Wissen Kids Center",
     coverImageUrl: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&q=80&w=800",
   });
 
@@ -90,7 +90,7 @@ export default function AdminArticlesPage() {
               category: "Tips Parenting",
               summary: "",
               content: "",
-              authorName: "Tim Pendidik Wissen-Kids",
+              authorName: "Tim Pendidik Wissen Kids Center",
               coverImageUrl: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&q=80&w=800",
             });
             setIsModalOpen(true);

@@ -1,27 +1,36 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { GraduationCap, Lock, Mail, ArrowRight, ShieldCheck, Info } from "lucide-react";
+import { Lock, Mail, ArrowRight, ShieldCheck, Info } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export default function AdminLoginPage() {
   const router = useRouter();
   const [email, setEmail] = useState("admin@wissenkids.id");
   const [password, setPassword] = useState("admin123");
+  const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
+    setError("");
     setLoading(true);
+
     setTimeout(() => {
-      setLoading(false);
-      router.push("/admin/dashboard");
+      if (email === "admin@wissenkids.id" && password === "admin123") {
+        router.push("/admin/dashboard");
+      } else {
+        setError("Email atau password yang Anda masukkan salah.");
+        setLoading(false);
+      }
     }, 600);
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 flex flex-col justify-center items-center p-4 sm:p-6">
+    <div className="min-h-screen bg-slate-950 flex items-center justify-center p-4 relative overflow-hidden">
       
       {/* Glow Orbs */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl pointer-events-none" />
@@ -31,12 +40,19 @@ export default function AdminLoginPage() {
         {/* Brand Header */}
         <div className="text-center space-y-2">
           <Link href="/" className="inline-flex items-center gap-2.5">
-            <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-blue-600 via-indigo-600 to-amber-400 flex items-center justify-center text-white shadow-lg shadow-blue-600/30">
-              <GraduationCap className="w-7 h-7" />
+            <div className="h-14 w-14 rounded-2xl bg-white flex items-center justify-center shadow-lg shadow-blue-600/30 p-1">
+              <Image
+                src="/logo.avif"
+                alt="Logo Wissen Kids Center"
+                width={56}
+                height={56}
+                className="h-full w-full object-contain"
+                priority
+              />
             </div>
           </Link>
           <h1 className="text-2xl font-black text-white tracking-tight">
-            Wissen<span className="text-amber-400">-Kids</span> CMS
+            Wissen Kids <span className="text-amber-400">Center</span> CMS
           </h1>
           <p className="text-xs text-slate-400">
             Masuk ke panel manajemen konten & data calon murid
@@ -89,10 +105,11 @@ export default function AdminLoginPage() {
               </div>
             </div>
 
-            <button
+            <Button
               type="submit"
               disabled={loading}
-              className="w-full py-3.5 px-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-sm shadow-md shadow-blue-600/20 transition-all flex items-center justify-center gap-2 mt-2"
+              size="lg"
+              className="w-full mt-2"
             >
               {loading ? (
                 <span>Memverifikasi Akun...</span>
@@ -102,7 +119,7 @@ export default function AdminLoginPage() {
                   <ArrowRight className="w-4 h-4" />
                 </>
               )}
-            </button>
+            </Button>
           </form>
 
           <div className="pt-4 border-t border-slate-800 flex items-center justify-between text-xs text-slate-500">

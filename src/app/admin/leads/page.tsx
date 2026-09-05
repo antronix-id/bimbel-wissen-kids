@@ -166,7 +166,7 @@ export default function AdminLeadsPage() {
               {filtered.map((lead) => {
                 const waUrl = formatWhatsAppUrl(
                   lead.whatsappNumber,
-                  `Halo Bapak/Ibu ${lead.parentName}, kami dari Wissen-Kids ingin mengonfirmasi jadwal free trial untuk ananda ${lead.childName}.`
+                  `Halo Bapak/Ibu ${lead.parentName}, kami dari Wissen Kids Center ingin mengonfirmasi jadwal free trial untuk ananda ${lead.childName}.`
                 );
 
                 return (

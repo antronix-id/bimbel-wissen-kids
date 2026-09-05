@@ -1,83 +1,201 @@
-import React from "react";
-import Image from "next/image";
-import Link from "next/link";
-import { Star, Quote, ArrowRight, CheckCircle2 } from "lucide-react";
-import { testimonialsData } from "@/data/mockData";
+"use client";
 
-export default function TestimonialSection() {
+import React from "react";
+import { cn } from "@/lib/utils";
+import { InfiniteSlider } from "@/components/ui/infinite-slider";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { CardBackground } from "@/components/ui/card";
+
+type Testimonial = {
+  quote: string;
+  image: string;
+  name: string;
+  role: string;
+  company?: string;
+};
+
+const testimonials: Testimonial[] = [
+  {
+    quote:
+      "Awalnya Rafa susah banget disuruh duduk belajar baca di rumah. Setelah 2 bulan gabung di Wissen Kids Center, sekarang tiap nemu plang toko atau buku cerita dia langsung eja sendiri dengan antusias. Gurunya sabar dan telaten banget!",
+    image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=200",
+    name: "Ibu Amanda Putri",
+    role: "Ortu dari Rafa (5 thn)",
+    company: "Baca Tulis & Hitung",
+  },
+  {
+    quote:
+      "Nilai matematika Kirana naik drastis dari 65 jadi 95 di ujian semester kemarin. Program sempoa di Wissen Kids Center beneran bikin anak saya jadi cepet dan teliti ngitung tanpa ketergantungan kalkulator.",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200",
+    name: "Bapak Hendra Kusuma",
+    role: "Ortu dari Kirana (Kelas 5 SD)",
+    company: "Sempoa & Bimbel SD",
+  },
+  {
+    quote:
+      "Kelas Simulation & Activity penyelamat banget untuk anak toddler saya. Sensori motoriknya terlatih, nggak gampang tantrum, dan sekarang gampang berbaur sama teman-teman baru. Ruangannya juga bersih dan aman banget.",
+    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=200",
+    name: "Ibu dr. Nadia Faradiba",
+    role: "Ortu dari Kenzie (3 thn)",
+    company: "Simulation & Activity",
+  },
+  {
+    quote:
+      "Tutor SMP di Wissen Kids Center sangat komunikatif, cara ngajarin rumus fisika dan aljabar pakai logika sederhana bukan hafalan buta. Aldo yang tadinya malas belajar sekarang jadi proaktif ngerjain PR.",
+    image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=200",
+    name: "Ibu Siska Wulandari",
+    role: "Ortu dari Aldo (Kelas 8 SMP)",
+    company: "Bimbel SMP & English",
+  },
+  {
+    quote:
+      "Kosakata bahasa Inggris Alvaro bertambah pesat. Dia sekarang percaya diri menyapa dengan full English saat ketemu turis. Metode belajarnya santai tapi ilmunya nancep!",
+    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=200",
+    name: "Bapak Denny Pratama",
+    role: "Ortu dari Alvaro (6 thn)",
+    company: "English for Kids",
+  },
+  {
+    quote:
+      "Kreativitas Naura terlatih luar biasa di kelas Art & Craft. Tiap pulang selalu bawa karya lukisan atau origami buatan sendiri dengan bangga. Daya fokusnya jadi jauh lebih lama.",
+    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=200",
+    name: "Ibu Maya Kartika",
+    role: "Ortu dari Naura (4 thn)",
+    company: "Art & Craft Kids",
+  },
+  {
+    quote:
+      "Alhamdulillah tajwid dan makhraj huruf Fathan makin rapi. Ustadzah di Wissen Kids membimbing dengan lemah lembut sehingga anak tidak takut salah saat belajar tilawah.",
+    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=200",
+    name: "Bapak Faisal Anwar",
+    role: "Ortu dari Fathan (7 thn)",
+    company: "Tahsin & Mengaji",
+  },
+  {
+    quote:
+      "Ranking Zahra naik ke 3 besar di kelasnya! Pembahasan kisi-kisi ulangan dan PR di Wissen Kids sangat terarah, tutornya selalu sigap membantu konsep yang belum paham.",
+    image: "https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?auto=format&fit=crop&q=80&w=200",
+    name: "Ibu Rina Oktaviani",
+    role: "Ortu dari Zahra (Kelas 3 SD)",
+    company: "Bimbel Tematik SD",
+  },
+  {
+    quote:
+      "Daffa belajar sempoa jari dengan sangat antusias. Berhitung cepat tanpa jarum jam sekarang jadi kebiasaan seru buat dia. Recomended banget untuk melatih otak kiri dan kanan!",
+    image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=200",
+    name: "Bapak Wahyu Hidayat",
+    role: "Ortu dari Daffa (5 thn)",
+    company: "Sempoa Cilik",
+  },
+];
+
+const firstColumn = testimonials.slice(0, 3);
+const secondColumn = testimonials.slice(3, 6);
+const thirdColumn = testimonials.slice(6, 9);
+
+export function TestimonialsSection() {
   return (
-    <section id="testimoni" className="py-16 sm:py-24 bg-gradient-to-b from-slate-50 to-blue-50/40 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-12">
-          <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
-            Kata Orang Tua Tentang{" "}
-            <span className="text-blue-600">Wissen-Kids</span>
+    <section className="relative py-14 sm:py-20 bg-transparent">
+      <div className="mx-auto max-w-5xl px-4 sm:px-6">
+        <div className="mx-auto flex max-w-sm flex-col items-center justify-center gap-4">
+          <div className="flex justify-center">
+            <div className="rounded-lg border border-slate-200/80 bg-white/80 px-4 py-1 text-xs font-semibold text-slate-700 shadow-xs">
+              Testimonials
+            </div>
+          </div>
+
+          <h2 className="font-black text-3xl tracking-tighter lg:text-4xl text-black text-center">
+            Apa Kata Orang Tua Murid
           </h2>
-          <p className="text-slate-600 text-sm sm:text-base mt-2">
-            Kepuasan nyata dari Ayah & Bunda yang telah menyaksikan langsung transformasi positif putra-putrinya.
+          <p className="text-center text-black font-bold text-sm">
+            Simak ulasan nyata Ayah & Bunda tentang pengalaman belajar anak di Wissen Kids Center.
           </p>
         </div>
 
-        {/* Testimonials Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {testimonialsData.map((testi) => (
-            <div
-              key={testi.id}
-              className="bg-white p-6 rounded-3xl border border-slate-200/80 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
-            >
-              <div>
-                {/* Rating stars & quote icon */}
-                <div className="flex items-center justify-between gap-2 mb-4">
-                  <div className="flex items-center gap-1">
-                    {[...Array(testi.rating)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
-                    ))}
-                  </div>
-                  <Quote className="w-6 h-6 text-slate-200" />
-                </div>
-
-                {/* Review Text */}
-                <p className="text-slate-700 text-xs sm:text-sm leading-relaxed mb-6 italic">
-                  &ldquo;{testi.reviewText}&rdquo;
-                </p>
-              </div>
-
-              {/* Author details */}
-              <div className="pt-4 border-t border-slate-100 flex items-center gap-3">
-                {testi.avatarUrl ? (
-                  <div className="relative w-10 h-10 rounded-full overflow-hidden shrink-0 border border-slate-200">
-                    <Image
-                      src={testi.avatarUrl}
-                      alt={testi.parentName}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                ) : (
-                  <div className="w-10 h-10 rounded-full bg-blue-100 text-blue-700 font-bold flex items-center justify-center shrink-0 text-sm">
-                    {testi.parentName.charAt(0)}
-                  </div>
-                )}
-                <div className="overflow-hidden">
-                  <p className="text-xs font-bold text-slate-900 truncate">
-                    {testi.parentName}
-                  </p>
-                  <p className="text-[11px] text-slate-500 truncate">
-                    Ortu dari {testi.childNameAndAge}
-                  </p>
-                  <span className="inline-block text-[10px] font-semibold text-blue-600 bg-blue-50 px-2 py-0.5 rounded-md mt-1 truncate max-w-full">
-                    {testi.programTaken}
-                  </span>
-                </div>
-              </div>
-
-            </div>
-          ))}
+        <div
+          className={cn(
+            "mt-8 sm:mt-10 flex max-h-[480px] sm:max-h-[560px] lg:max-h-[640px] justify-center gap-4 sm:gap-6 overflow-hidden",
+            "mask-[linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)]",
+            "[mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)]",
+            "[-webkit-mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)]"
+          )}
+        >
+          <InfiniteSlider direction="vertical" speed={30} speedOnHover={15}>
+            {firstColumn.map((testimonial) => (
+              <TestimonialsCard
+                key={testimonial.name}
+                testimonial={testimonial}
+              />
+            ))}
+          </InfiniteSlider>
+          <InfiniteSlider
+            className="hidden md:block"
+            direction="vertical"
+            speed={50}
+            speedOnHover={25}
+          >
+            {secondColumn.map((testimonial) => (
+              <TestimonialsCard
+                key={testimonial.name}
+                testimonial={testimonial}
+              />
+            ))}
+          </InfiniteSlider>
+          <InfiniteSlider
+            className="hidden lg:block"
+            direction="vertical"
+            speed={35}
+            speedOnHover={17}
+          >
+            {thirdColumn.map((testimonial) => (
+              <TestimonialsCard
+                key={testimonial.name}
+                testimonial={testimonial}
+              />
+            ))}
+          </InfiniteSlider>
         </div>
-
       </div>
     </section>
   );
 }
+
+function TestimonialsCard({
+  testimonial,
+  className,
+  ...props
+}: React.ComponentProps<"figure"> & {
+  testimonial: Testimonial;
+}) {
+  const { quote, image, name, role, company } = testimonial;
+  return (
+    <figure
+      className={cn(
+        "w-full max-w-xs rounded-3xl border border-slate-200/80 bg-white p-6 sm:p-8 shadow-slate-900/10 shadow-lg dark:bg-card/20 relative overflow-hidden flex flex-col justify-between",
+        className
+      )}
+      {...props}
+    >
+      <CardBackground rows={10} cols={8} tileSize="md" />
+      <div className="relative z-10 flex flex-col justify-between h-full">
+        <blockquote className="text-black font-semibold text-sm leading-relaxed">{quote}</blockquote>
+        <figcaption className="mt-5 flex items-center gap-2">
+          <Avatar className="size-8 rounded-full">
+            <AvatarImage alt={`${name}'s profile picture`} src={image} />
+            <AvatarFallback>{name.charAt(0)}</AvatarFallback>
+          </Avatar>
+          <div className="flex flex-col">
+            <cite className="font-black not-italic leading-5 tracking-tight text-black text-sm">
+              {name}
+            </cite>
+            <span className="text-black font-bold text-xs leading-5 tracking-tight">
+              {role} {company && `, ${company}`}
+            </span>
+          </div>
+        </figcaption>
+      </div>
+    </figure>
+  );
+}
+
+export default TestimonialsSection;

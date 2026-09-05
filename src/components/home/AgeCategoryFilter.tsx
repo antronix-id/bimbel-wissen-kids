@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { Program, ProgramLevel } from "@/types";
 import ProgramCard from "@/components/shared/ProgramCard";
 import { Sparkles, Layers } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 interface AgeCategoryFilterProps {
   programs: Program[];
@@ -39,41 +40,38 @@ export default function AgeCategoryFilter({ programs }: AgeCategoryFilterProps) 
   return (
     <div className="space-y-8">
       {/* Category Pills / Tabs */}
-      <div className="flex items-center justify-center flex-wrap gap-2 sm:gap-3">
+      <div className="flex items-center justify-start sm:justify-center overflow-x-auto sm:flex-wrap gap-2 sm:gap-3 pb-2 sm:pb-0 -mx-4 px-4 sm:mx-0 sm:px-0">
         {filterOptions.map((opt) => {
           const isSelected = activeFilter === opt.id;
           return (
-            <button
+            <Button
               key={opt.id}
               onClick={() => setActiveFilter(opt.id)}
-              className={`px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-bold transition-all duration-200 flex flex-col items-center gap-0.5 ${
-                isSelected
-                  ? "bg-blue-600 text-white shadow-md shadow-blue-500/25 scale-105"
-                  : "bg-white hover:bg-slate-100 text-slate-700 border border-slate-200/80 shadow-xs"
-              }`}
+              variant={isSelected ? "default" : "secondary"}
+              className="h-auto py-2 sm:py-2.5 px-3.5 sm:px-4 flex flex-col items-center gap-0.5 rounded-2xl whitespace-nowrap shrink-0 sm:shrink"
             >
-              <span>{opt.label}</span>
+              <span className="text-xs sm:text-sm">{opt.label}</span>
               <span
-                className={`text-[10px] font-medium ${
-                  isSelected ? "text-blue-100" : "text-slate-400"
+                className={`text-[10px] sm:text-xs font-medium ${
+                  isSelected ? "text-white" : "text-white/80"
                 }`}
               >
                 {opt.ageDesc}
               </span>
-            </button>
+            </Button>
           );
         })}
       </div>
 
       {/* Counter text */}
-      <div className="flex items-center justify-between text-xs text-slate-500 px-2">
+      <div className="flex items-center justify-between text-xs sm:text-sm text-black font-bold px-1 sm:px-2">
         <p>
-          Menampilkan <strong>{filteredPrograms.length}</strong> pilihan program belajar
+          Menampilkan <strong className="text-black font-black">{filteredPrograms.length}</strong> pilihan program belajar
         </p>
       </div>
 
       {/* Grid of Programs */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-7">
         {filteredPrograms.map((program) => (
           <ProgramCard key={program.id} program={program} />
         ))}

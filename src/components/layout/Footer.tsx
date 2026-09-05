@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { 
-  GraduationCap, 
   MapPin, 
   Phone, 
   Mail, 
@@ -20,12 +20,18 @@ export default function Footer() {
           
           {/* Kolom 1 & 2: Identitas & Visi */}
           <div className="lg:col-span-2 space-y-4">
-            <Link href="/" className="flex items-center gap-2.5">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-500 via-indigo-500 to-amber-400 flex items-center justify-center text-white shadow-md">
-                <GraduationCap className="w-6 h-6" />
+            <Link href="/" className="flex items-center gap-2.5 group">
+              <div className="relative h-11 w-11 overflow-hidden rounded-xl bg-white shadow-md p-0.5 flex items-center justify-center group-hover:scale-105 transition-transform">
+                <Image
+                  src="/logo.avif"
+                  alt="Logo Wissen Kids Center"
+                  width={44}
+                  height={44}
+                  className="h-full w-full object-contain"
+                />
               </div>
               <span className="text-2xl font-black text-white tracking-tight">
-                Wissen<span className="text-amber-400">-Kids</span>
+                Wissen Kids <span className="text-amber-400">Center</span>
               </span>
             </Link>
             
@@ -54,7 +60,7 @@ export default function Footer() {
                 href={siteSettings.instagramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Instagram Wissen-Kids"
+                aria-label="Instagram Wissen Kids Center"
                 className="w-9 h-9 rounded-lg bg-slate-800 hover:bg-pink-600 hover:text-white flex items-center justify-center text-slate-400 transition-colors"
               >
                 <InstagramIcon className="w-4 h-4" />
@@ -63,7 +69,7 @@ export default function Footer() {
                 href={siteSettings.tiktokUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="TikTok Wissen-Kids"
+                aria-label="TikTok Wissen Kids Center"
                 className="w-9 h-9 rounded-lg bg-slate-800 hover:bg-slate-700 hover:text-white flex items-center justify-center text-slate-400 transition-colors"
               >
                 <TikTokIcon className="w-4 h-4" />
@@ -72,7 +78,7 @@ export default function Footer() {
                 href={siteSettings.facebookUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Facebook Wissen-Kids"
+                aria-label="Facebook Wissen Kids Center"
                 className="w-9 h-9 rounded-lg bg-slate-800 hover:bg-blue-600 hover:text-white flex items-center justify-center text-slate-400 transition-colors"
               >
                 <FacebookIcon className="w-4 h-4" />
@@ -118,7 +124,7 @@ export default function Footer() {
             <ul className="space-y-2.5 text-xs text-slate-400">
               <li>
                 <Link href="/tentang-kami" className="hover:text-blue-400 transition-colors">
-                  Tentang Wissen-Kids
+                  Tentang Wissen Kids Center
                 </Link>
               </li>
               <li>
@@ -133,7 +139,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/artikel" className="hover:text-blue-400 transition-colors">
-                  Tips Parenting & Edukasi
+                  Tips Edukasi & Parenting
                 </Link>
               </li>
               <li>
@@ -160,32 +166,23 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Kolom 5: Kontak & Alamat */}
+          {/* Kolom 5: Kontak & Lokasi */}
           <div className="space-y-3">
             <p className="text-white font-bold text-sm tracking-wide uppercase">
-              Hubungi Kami
+              Kontak & Lokasi
             </p>
-            <ul className="space-y-3 text-xs text-slate-400">
+            <ul className="space-y-2.5 text-xs text-slate-400">
               <li className="flex items-start gap-2.5">
-                <MapPin className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
+                <MapPin className="w-4 h-4 text-blue-400 shrink-0 mt-0.5" />
                 <span>{siteSettings.address}</span>
               </li>
               <li className="flex items-center gap-2.5">
                 <Phone className="w-4 h-4 text-emerald-400 shrink-0" />
-                <a
-                  href={`https://wa.me/${siteSettings.whatsappNumber}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-emerald-400 font-semibold text-white transition-colors"
-                >
-                  {siteSettings.displayPhone} (WhatsApp)
-                </a>
+                <span>{siteSettings.displayPhone}</span>
               </li>
               <li className="flex items-center gap-2.5">
-                <Mail className="w-4 h-4 text-blue-400 shrink-0" />
-                <a href={`mailto:${siteSettings.email}`} className="hover:text-blue-400 transition-colors">
-                  {siteSettings.email}
-                </a>
+                <Mail className="w-4 h-4 text-amber-400 shrink-0" />
+                <span>{siteSettings.email}</span>
               </li>
               <li className="flex items-start gap-2.5">
                 <Clock className="w-4 h-4 text-indigo-400 shrink-0 mt-0.5" />
@@ -197,14 +194,14 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
-          <p>© {new Date().getFullYear()} Wissen-Kids. All rights reserved. Bimbingan Belajar Usia 2 Tahun - SMP.</p>
-          <div className="flex items-center gap-4">
-            <Link href="/#faq" className="hover:text-slate-400 transition-colors">Syarat & Ketentuan</Link>
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400 text-center sm:text-left">
+          <p>© {new Date().getFullYear()} Wissen Kids Center. All rights reserved. Bimbingan Belajar Usia 2 Tahun - SMP.</p>
+          <div className="flex items-center justify-center flex-wrap gap-x-3 sm:gap-x-4 gap-y-1.5">
+            <Link href="/#faq" className="hover:text-slate-300 transition-colors">Syarat & Ketentuan</Link>
             <span>•</span>
-            <Link href="/#faq" className="hover:text-slate-400 transition-colors">Kebijakan Privasi</Link>
+            <Link href="/#faq" className="hover:text-slate-300 transition-colors">Kebijakan Privasi</Link>
             <span>•</span>
-            <Link href="/daftar" className="hover:text-slate-400 transition-colors">Booking Konsultasi</Link>
+            <Link href="/daftar" className="hover:text-slate-300 transition-colors">Booking Konsultasi</Link>
             <span>•</span>
             <Link href="/admin/login" className="hover:text-slate-300 font-semibold text-slate-400 transition-colors">
               Admin CMS

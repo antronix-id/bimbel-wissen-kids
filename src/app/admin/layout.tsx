@@ -2,34 +2,38 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { 
-  GraduationCap, 
   LayoutDashboard, 
   BookOpen, 
-  Users, 
   FileText, 
-  Image as ImageIcon, 
-  MessageSquareQuote, 
   HelpCircle, 
+  Image as ImageIcon, 
+  Star, 
+  UserCheck, 
   Settings, 
-  Globe, 
   LogOut, 
   Menu, 
-  X,
-  Bell,
-  ShieldCheck
+  X, 
+  Globe, 
+  ShieldCheck 
 } from "lucide-react";
 
-const adminNav = [
+const adminNav: Array<{
+  href: string;
+  label: string;
+  icon: React.ComponentType<{ className?: string }>;
+  badge?: string;
+}> = [
   { href: "/admin/dashboard", label: "Dashboard", icon: LayoutDashboard },
+  { href: "/admin/leads", label: "Pendaftar & Leads", icon: UserCheck, badge: "Baru" },
   { href: "/admin/programs", label: "Program Belajar", icon: BookOpen, badge: "10" },
-  { href: "/admin/leads", label: "Pendaftar / Leads", icon: Users, badge: "Baru" },
-  { href: "/admin/articles", label: "Artikel & Tips", icon: FileText },
-  { href: "/admin/gallery", label: "Galeri & Fasilitas", icon: ImageIcon },
-  { href: "/admin/testimonials", label: "Testimoni", icon: MessageSquareQuote },
+  { href: "/admin/articles", label: "Artikel / Tips", icon: FileText },
+  { href: "/admin/gallery", label: "Galeri Foto", icon: ImageIcon },
+  { href: "/admin/testimonials", label: "Testimoni", icon: Star },
   { href: "/admin/faqs", label: "FAQ", icon: HelpCircle },
-  { href: "/admin/settings", label: "Pengaturan Situs", icon: Settings },
+  { href: "/admin/settings", label: "Pengaturan Website", icon: Settings },
 ];
 
 export default function AdminLayout({
@@ -46,15 +50,21 @@ export default function AdminLayout({
   }
 
   return (
-    <div className="min-h-screen bg-slate-100 flex flex-col lg:flex-row text-slate-800">
+    <div className="min-h-screen bg-transparent flex flex-col lg:flex-row text-slate-800">
       
       {/* Mobile Header */}
       <div className="lg:hidden bg-slate-900 text-white p-4 flex items-center justify-between border-b border-slate-800 sticky top-0 z-40">
         <div className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center text-white">
-            <GraduationCap className="w-5 h-5" />
+          <div className="h-8 w-8 rounded-lg bg-white p-0.5 flex items-center justify-center overflow-hidden">
+            <Image
+              src="/logo.avif"
+              alt="Logo Wissen Kids Center"
+              width={32}
+              height={32}
+              className="h-full w-full object-contain"
+            />
           </div>
-          <span className="font-extrabold text-sm tracking-tight">Wissen-Kids CMS</span>
+          <span className="font-extrabold text-sm tracking-tight">Wissen Kids Center CMS</span>
         </div>
         <button
           onClick={() => setSidebarOpen(!sidebarOpen)}
@@ -75,12 +85,18 @@ export default function AdminLayout({
           {/* Brand Logo Header */}
           <div className="p-6 border-b border-slate-800 flex items-center justify-between">
             <Link href="/admin/dashboard" className="flex items-center gap-2.5">
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-blue-600 via-indigo-600 to-amber-400 flex items-center justify-center text-white shadow-md">
-                <GraduationCap className="w-5 h-5" />
+              <div className="h-9 w-9 rounded-xl bg-white p-0.5 flex items-center justify-center overflow-hidden shadow-sm">
+                <Image
+                  src="/logo.avif"
+                  alt="Logo Wissen Kids Center"
+                  width={36}
+                  height={36}
+                  className="h-full w-full object-contain"
+                />
               </div>
               <div className="flex flex-col">
-                <span className="text-base font-black text-white tracking-tight">
-                  Wissen<span className="text-amber-400">-Kids</span>
+                <span className="text-sm font-black text-white tracking-tight">
+                  Wissen Kids <span className="text-amber-400">Center</span>
                 </span>
                 <span className="text-[10px] uppercase font-bold tracking-widest text-slate-500">
                   Admin Panel
@@ -149,7 +165,7 @@ export default function AdminLayout({
                 AD
               </div>
               <div className="overflow-hidden">
-                <p className="text-xs font-bold text-white truncate">Admin Wissen</p>
+                <p className="text-xs font-bold text-white truncate">Admin Wissen Kids</p>
                 <p className="text-[10px] text-emerald-400">Superadmin</p>
               </div>
             </div>
@@ -175,7 +191,7 @@ export default function AdminLayout({
               Content Management System
             </h1>
             <p className="text-xs text-slate-500">
-              Kelola seluruh konten, program belajar, dan data calon murid Wissen-Kids
+              Kelola seluruh konten, program belajar, dan data calon murid Wissen Kids Center
             </p>
           </div>
 

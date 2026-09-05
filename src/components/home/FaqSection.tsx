@@ -2,9 +2,61 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { ChevronDown, HelpCircle, ArrowRight, MessageCircle } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronDown, MessageCircle, HelpCircle } from "lucide-react";
 import { faqsData, siteSettings } from "@/data/mockData";
 import { formatWhatsAppUrl } from "@/lib/utils";
+
+export const BlurredStagger = ({
+  text,
+}: {
+  text: string;
+}) => {
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.007,
+      },
+    },
+  };
+
+  const letterAnimation = {
+    hidden: {
+      opacity: 0,
+      filter: "blur(10px)",
+      y: 2,
+    },
+    show: {
+      opacity: 1,
+      filter: "blur(0px)",
+      y: 0,
+    },
+  };
+
+  return (
+    <div className="w-full">
+      <motion.p
+        variants={container}
+        initial="hidden"
+        animate="show"
+        className="text-sm sm:text-base leading-relaxed text-black font-medium break-words whitespace-normal"
+      >
+        {text.split("").map((char, index) => (
+          <motion.span
+            key={index}
+            variants={letterAnimation}
+            transition={{ duration: 0.25 }}
+            className="inline-block"
+          >
+            {char === " " ? "\u00A0" : char}
+          </motion.span>
+        ))}
+      </motion.p>
+    </div>
+  );
+};
 
 export default function FaqSection() {
   const [openId, setOpenId] = useState<string | null>(faqsData[0]?.id || null);
@@ -13,76 +65,109 @@ export default function FaqSection() {
     setOpenId(openId === id ? null : id);
   };
 
+  const waUrl = formatWhatsAppUrl(
+    siteSettings.whatsappNumber,
+    "Halo Admin Wissen Kids Center, saya ingin berkonsultasi mengenai pertanyaan seputar bimbingan belajar anak saya."
+  );
+
   return (
-    <section id="faq" className="py-16 sm:py-24 bg-white">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-black text-slate-900 mt-4 tracking-tight">
-            Pertanyaan yang Sering Diajukan
-          </h2>
-          <p className="text-slate-600 text-sm sm:text-base mt-2">
-            Temukan jawaban cepat seputar metode, jadwal kelas, dan sistem bimbingan belajar kami.
-          </p>
-        </div>
+    <section id="faq" className="py-16 md:py-24 bg-transparent">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div className="grid gap-10 md:grid-cols-5 md:gap-14 items-start">
+          
+          {/* Left Column: Heading & Contact info */}
+          <div className="md:col-span-2 space-y-4 md:sticky md:top-28">
+            <div className="inline-flex items-center gap-1.5 rounded-full border-2 border-black bg-white px-3.5 py-1 text-xs font-bold shadow-[2px_2px_0px_#000]">
+              <HelpCircle className="w-3.5 h-3.5 text-blue-600" />
+              <span>Tanya Jawab (FAQs)</span>
+            </div>
 
-        {/* Accordion List */}
-        <div className="space-y-3.5">
-          {faqsData.map((faq) => {
-            const isOpen = openId === faq.id;
-            return (
-              <div
-                key={faq.id}
-                className="border border-slate-200 rounded-2xl overflow-hidden transition-all duration-200 hover:border-blue-300"
-              >
-                <button
-                  onClick={() => toggle(faq.id)}
-                  className="w-full text-left p-5 sm:p-6 bg-slate-50/70 hover:bg-slate-50 flex items-center justify-between gap-4 transition-colors"
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-black tracking-tight text-black leading-tight">
+              Pertanyaan yang Sering Diajukan
+            </h2>
+
+            <p className="text-black font-semibold text-sm sm:text-base leading-relaxed">
+              Semua hal penting yang perlu Ayah & Bunda ketahui tentang program, metode, fasilitas, dan jadwal di Wissen Kids Center.
+            </p>
+
+            <div className="pt-2 hidden md:block border-t border-slate-200/80">
+              <p className="text-xs sm:text-sm text-black font-medium leading-relaxed">
+                Belum menemukan jawaban yang dicari? Silakan hubungi langsung{" "}
+                <a
+                  href={waUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-bold text-blue-700 hover:text-blue-800 underline underline-offset-2 inline-flex items-center gap-1"
                 >
-                  <div className="flex items-center gap-3">
-                    <span className="p-1.5 rounded-lg bg-blue-100 text-blue-600 shrink-0">
-                      <HelpCircle className="w-4 h-4" />
-                    </span>
-                    <span className="font-bold text-sm sm:text-base text-slate-900">
-                      {faq.question}
-                    </span>
-                  </div>
-                  <ChevronDown
-                    className={`w-5 h-5 text-slate-500 shrink-0 transition-transform duration-200 ${
-                      isOpen ? "rotate-180 text-blue-600" : ""
-                    }`}
-                  />
-                </button>
-
-                {isOpen && (
-                  <div className="p-5 sm:p-6 bg-white border-t border-slate-100 text-xs sm:text-sm text-slate-600 leading-relaxed">
-                    {faq.answer}
-                  </div>
-                )}
-              </div>
-            );
-          })}
-        </div>
-
-        {/* Still have questions CTA */}
-        <div className="mt-10 p-6 rounded-2xl bg-blue-50/70 border border-blue-100 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
-          <div>
-            <p className="font-bold text-slate-900 text-sm">Masih punya pertanyaan lain seputar kebutuhan si kecil?</p>
-            <p className="text-xs text-slate-600 mt-0.5">Tim konsultan pendidikan kami siap berdiskusi langsung melalui WhatsApp.</p>
+                  Tim Edukasi Kami via WA →
+                </a>
+              </p>
+            </div>
           </div>
-          <a
-            href={formatWhatsAppUrl(siteSettings.whatsappNumber, "Halo Admin Wissen-Kids, saya ingin berkonsultasi mengenai program belajar yang paling pas untuk anak saya.")}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs shadow-sm transition-colors flex items-center gap-2 shrink-0"
-          >
-            <MessageCircle className="w-4 h-4" />
-            <span>Chat Langsung ke WA</span>
-          </a>
-        </div>
 
+          {/* Right Column: Accordion with BlurredStagger */}
+          <div className="md:col-span-3 space-y-1">
+            {faqsData.map((item) => {
+              const isOpen = openId === item.id;
+              return (
+                <div
+                  key={item.id}
+                  className="border-b border-slate-200/90 transition-colors"
+                >
+                  <button
+                    onClick={() => toggle(item.id)}
+                    className="w-full text-left py-4 sm:py-5 flex items-center justify-between gap-4 cursor-pointer group"
+                    aria-expanded={isOpen}
+                  >
+                    <span className="font-extrabold text-sm sm:text-base text-black group-hover:text-blue-600 transition-colors">
+                      {item.question}
+                    </span>
+                    <ChevronDown
+                      className={`w-5 h-5 text-slate-700 shrink-0 transition-transform duration-200 group-hover:text-blue-600 ${
+                        isOpen ? "rotate-180 text-blue-600" : ""
+                      }`}
+                    />
+                  </button>
+
+                  <AnimatePresence initial={false}>
+                    {isOpen && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.25, ease: "easeInOut" }}
+                        className="overflow-hidden"
+                      >
+                        <div className="pb-5 pt-1">
+                          <BlurredStagger text={item.answer} />
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Mobile Bottom Contact Callout */}
+          <div className="md:hidden col-span-full pt-4 border-t border-slate-200/80">
+            <p className="text-xs sm:text-sm text-black font-medium">
+              Belum menemukan jawaban yang dicari? Hubungi{" "}
+              <a
+                href={waUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-bold text-blue-700 hover:underline"
+              >
+                Tim Edukasi Kami via WhatsApp →
+              </a>
+            </p>
+          </div>
+
+        </div>
       </div>
     </section>
   );
 }
+
+export { FaqSection };

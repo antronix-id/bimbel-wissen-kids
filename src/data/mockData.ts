@@ -1,7 +1,7 @@
 import { Program, Article, GalleryItem, Testimonial, FAQItem, SiteSettings, Lead } from "@/types";
 
 export const siteSettings: SiteSettings = {
-  siteName: "Wissen-Kids",
+  siteName: "Wissen Kids Center",
   tagline: "Bimbingan Belajar & Stimulasi Cerdas Anak Usia 2 Tahun hingga Lulus SMP",
   whatsappNumber: "6281234567890",
   displayPhone: "+62 812-3456-7890",
@@ -60,8 +60,8 @@ export const programsData: Program[] = [
     ageGroup: "4 – 7 Tahun",
     level: "prasekolah",
     badge: "Prasekolah & Transisi SD",
-    shortDesc: "Metode fonik modern belajar membaca dan menulis kata tanpa beban mengeja kaku, cepat lancar dan percaya diri.",
-    fullDesc: "Bukan sekadar hafalan huruf, metode Baca Tulis Wissen-Kids menggunakan pendekatan fonik visual & audio interaktif yang membimbing anak mengenali bunyi huruf, menggabungkan suku kata, hingga membaca kalimat utuh secara natural. Dilengkapi pendampingan pencil grip agar jari si kecil tidak cepat lelah saat menulis.",
+    shortDesc: "Metode fonik menyenangkan tanpa mengeja kaku, melatih kesiapan membaca kata, kalimat, dan kelenturan motorik menulis.",
+    fullDesc: "Bukan sekadar hafalan huruf, metode Baca Tulis Wissen Kids Center menggunakan pendekatan fonik visual & audio interaktif yang membimbing anak mengenali bunyi huruf, menggabungkan suku kata, hingga membaca kalimat utuh secara natural. Dilengkapi pendampingan pencil grip agar jari si kecil tidak cepat lelah saat menulis.",
     features: [
       "Metode Fonik Menyenangkan (tanpa mengeja terbata-bata)",
       "Flashcard bergambar & buku bacaan bertingkat",
@@ -168,8 +168,8 @@ export const programsData: Program[] = [
     ageGroup: "5 – 12 Tahun",
     level: "umum",
     badge: "Matematika Otak Kanan",
-    shortDesc: "Metode hitung cepat dengan sempoa fisik dan bayangan, menstimulasi konsentrasi, daya ingat visual, dan ketelitian.",
-    fullDesc: "Sempoa Wissen-Kids mengintegrasikan manipulasi manik sempoa fisik (soroban) dengan teknik 'bayangan sempoa' di pikiran (mental arithmetic). Metode ini terbukti melatih sinergi otak kiri (analisis logika) dan otak kanan (imajinasi visual), menghasilkan kemampuan berhitung secepat kilat dengan ketelitian tinggi.",
+    shortDesc: "Metode mental aritmatika sempoa Jepang (Soroban) yang mengoptimalkan keseimbangan fungsi otak kiri dan kanan, fokus, serta memori visual.",
+    fullDesc: "Sempoa Wissen Kids Center mengintegrasikan manipulasi manik sempoa fisik (soroban) dengan teknik 'bayangan sempoa' di pikiran (mental arithmetic). Metode ini terbukti melatih sinergi otak kiri (analisis logika) dan otak kanan (imajinasi visual), menghasilkan kemampuan berhitung secepat kilat dengan ketelitian tinggi.",
     features: [
       "Alat sempoa fisik 13/17 tiang berkualitas",
       "Latihan kecepatan mata & refleks motorik",
@@ -277,7 +277,7 @@ export const programsData: Program[] = [
     level: "smp",
     badge: "Akademik SMP & Masuk SMA",
     shortDesc: "Pemantapan konsep Matematika, IPA (Fisika & Biologi), Bahasa Inggris, persiapan Asesmen Nasional (ANBK) & ujian masuk SMA favorit.",
-    fullDesc: "Tingkat SMP adalah fase krusial pendalaman sains dan matematika abstrak. Di Bimbel SMP Wissen-Kids, para pengajar membimbing siswa memahami logika rumus, membiasakan berpikir kritis (*Higher Order Thinking Skills / HOTS*), serta mempersiapkan portofolio nilai rapor untuk seleksi masuk SMA/SMK impian.",
+    fullDesc: "Tingkat SMP adalah fase krusial pendalaman sains dan matematika abstrak. Di Bimbel SMP Wissen Kids Center, para pengajar membimbing siswa memahami logika rumus, membiasakan berpikir kritis (*Higher Order Thinking Skills / HOTS*), serta mempersiapkan portofolio nilai rapor untuk seleksi masuk SMA/SMK impian.",
     features: [
       "Fokus pada Matematika, IPA Terpadu (Fisika & Biologi), Bahasa Inggris",
       "Teknik cepat penyelesaian soal HOTS & analisis logika",
@@ -313,7 +313,7 @@ export const programsData: Program[] = [
     level: "umum",
     badge: "Keagamaan & Adab Mulia",
     shortDesc: "Belajar membaca Al-Qur'an dari nol dengan metode Iqra', tajwid benar, hafalan surat-surat pendek (Juz 'Amma), dan doa harian.",
-    fullDesc: "Program Mengaji Wissen-Kids memberikan bimbingan membaca Al-Qur'an secara tartil dengan suasana penuh kasih sayang. Pengajar bersanad/tersertifikasi membimbing anak melafalkan makharijul huruf dengan fasih, menghafal doa-doa sehari-hari, serta menanamkan nilai adab dan akhlak terpuji.",
+    fullDesc: "Program Mengaji Wissen Kids Center memberikan bimbingan membaca Al-Qur'an secara tartil dengan suasana penuh kasih sayang. Pengajar bersanad/tersertifikasi membimbing anak melafalkan makharijul huruf dengan fasih, menghafal doa-doa sehari-hari, serta menanamkan nilai adab dan akhlak terpuji.",
     features: [
       "Metode Iqra’ 1 sampai 6 hingga Al-Qur'an Tartil",
       "Bimbingan makhraj huruf dan hukum tajwid terstruktur",
@@ -386,7 +386,7 @@ export const testimonialsData: Testimonial[] = [
     childNameAndAge: "Rafa (5 tahun)",
     programTaken: "Baca Tulis & Berhitung",
     rating: 5,
-    reviewText: "Awalnya Rafa susah banget disuruh duduk belajar baca di rumah. Setelah 2 bulan gabung di Wissen-Kids, sekarang tiap nemu plang toko atau buku cerita dia langsung eja sendiri dengan antusias. Gurunya sabar dan telaten banget!",
+    reviewText: "Awalnya Rafa susah banget disuruh duduk belajar baca di rumah. Setelah 2 bulan gabung di Wissen Kids Center, sekarang tiap nemu plang toko atau buku cerita dia langsung eja sendiri dengan antusias. Gurunya sabar dan telaten banget!",
     avatarUrl: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=200",
     isFeatured: true
   },
@@ -396,7 +396,7 @@ export const testimonialsData: Testimonial[] = [
     childNameAndAge: "Kirana (Kelas 5 SD)",
     programTaken: "Sempoa & Bimbel SD",
     rating: 5,
-    reviewText: "Nilai matematika Kirana naik drastis dari 65 jadi 95 di ujian semester kemarin. Program sempoa di Wissen-Kids beneran bikin anak saya jadi cepet dan teliti ngitung tanpa ketergantungan kalkulator.",
+    reviewText: "Nilai matematika Kirana naik drastis dari 65 jadi 95 di ujian semester kemarin. Program sempoa di Wissen Kids Center beneran bikin anak saya jadi cepet dan teliti ngitung tanpa ketergantungan kalkulator.",
     avatarUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200",
     isFeatured: true
   },
@@ -416,8 +416,88 @@ export const testimonialsData: Testimonial[] = [
     childNameAndAge: "Aldo (Kelas 8 SMP)",
     programTaken: "Bimbel SMP & English",
     rating: 5,
-    reviewText: "Tutor SMP di Wissen-Kids sangat komunikatif, cara ngajarin rumus fisika dan aljabar pakai logika sederhana bukan hafalan buta. Aldo yang tadinya malas belajar sekarang jadi proaktif ngerjain PR.",
+    reviewText: "Tutor SMP di Wissen Kids Center sangat komunikatif, cara ngajarin rumus fisika dan aljabar pakai logika sederhana bukan hafalan buta. Aldo yang tadinya malas belajar sekarang jadi proaktif ngerjain PR.",
     avatarUrl: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=200",
+    isFeatured: true
+  },
+  {
+    id: "testi-5",
+    parentName: "Bapak Denny Pratama",
+    childNameAndAge: "Alvaro (6 tahun)",
+    programTaken: "English for Kids",
+    rating: 5,
+    reviewText: "Kosakata bahasa Inggris Alvaro bertambah pesat. Dia sekarang percaya diri menyapa dengan full English saat ketemu turis. Metode belajarnya santai tapi ilmunya nancep!",
+    avatarUrl: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=200",
+    isFeatured: true
+  },
+  {
+    id: "testi-6",
+    parentName: "Ibu Maya Kartika",
+    childNameAndAge: "Naura (4 tahun)",
+    programTaken: "Art & Craft Kids",
+    rating: 5,
+    reviewText: "Kreativitas Naura terlatih luar biasa di kelas Art & Craft. Tiap pulang selalu bawa karya lukisan atau origami buatan sendiri dengan bangga. Daya fokusnya jadi jauh lebih lama.",
+    avatarUrl: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=200",
+    isFeatured: true
+  },
+  {
+    id: "testi-7",
+    parentName: "Bapak Faisal Anwar",
+    childNameAndAge: "Fathan (7 tahun)",
+    programTaken: "Tahsin & Mengaji Kids",
+    rating: 5,
+    reviewText: "Alhamdulillah tajwid dan makhraj huruf Fathan makin rapi. Ustadzah di Wissen Kids membimbing dengan lemah lembut sehingga anak tidak takut salah saat belajar tilawah.",
+    avatarUrl: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=200",
+    isFeatured: true
+  },
+  {
+    id: "testi-8",
+    parentName: "Ibu Rina Oktaviani",
+    childNameAndAge: "Zahra (Kelas 3 SD)",
+    programTaken: "Bimbel Tematik SD",
+    rating: 5,
+    reviewText: "Ranking Zahra naik ke 3 besar di kelasnya! Pembahasan kisi-kisi ulangan dan PR di Wissen Kids sangat terarah, tutornya selalu sigap membantu konsep yang belum paham.",
+    avatarUrl: "https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?auto=format&fit=crop&q=80&w=200",
+    isFeatured: true
+  },
+  {
+    id: "testi-9",
+    parentName: "Bapak Wahyu Hidayat",
+    childNameAndAge: "Daffa (5 tahun)",
+    programTaken: "Sempoa Cilik (Fingermath)",
+    rating: 5,
+    reviewText: "Daffa belajar sempoa jari dengan sangat antusias. Berhitung cepat tanpa jarum jam sekarang jadi kebiasaan seru buat dia. Recomended banget untuk melatih otak kiri dan kanan!",
+    avatarUrl: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=200",
+    isFeatured: true
+  },
+  {
+    id: "testi-10",
+    parentName: "Ibu Citra Lestari",
+    childNameAndAge: "Arka (6 tahun)",
+    programTaken: "Transisi Masuk SD",
+    rating: 5,
+    reviewText: "Persiapan masuk SD jadi tenang berkat bimbingan intensif di Wissen Kids. Arka yang pemalu sekarang berani presentasi di depan kelas dan mandiri mengatur jadwal belajarnya.",
+    avatarUrl: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=200",
+    isFeatured: true
+  },
+  {
+    id: "testi-11",
+    parentName: "Bapak Agung Wicaksono",
+    childNameAndAge: "Reina (Kelas 7 SMP)",
+    programTaken: "English & Matematika SMP",
+    rating: 5,
+    reviewText: "Nilai rapor Reina meningkat signifikan terutama di mata pelajaran IPA dan Matematika. Penjelasan gurunya to-the-point dan banyak tips trik menjawab soal HOTS.",
+    avatarUrl: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=200",
+    isFeatured: true
+  },
+  {
+    id: "testi-12",
+    parentName: "Ibu Felicia Gunawan",
+    childNameAndAge: "Kenzo (4 tahun)",
+    programTaken: "Calistung Ceria",
+    rating: 5,
+    reviewText: "Metode fonik di Wissen Kids benar-benar menyenangkan untuk anak kecil. Kenzo tidak merasa sedang 'belajar berat' karena diselingi sensory play dan flashcard lucu.",
+    avatarUrl: "https://images.unsplash.com/photo-1548142813-c348350df52b?auto=format&fit=crop&q=80&w=200",
     isFeatured: true
   }
 ];
@@ -445,7 +525,7 @@ Ajak anak mencari huruf di kotak sereal, rambu lalu lintas, atau papan nama jala
 Bantal lembut, rak buku rendah setinggi jangkauan anak, dan penerangan yang baik akan memicu inisiatif anak mengambil buku sendiri.
     `,
     coverImageUrl: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&q=80&w=800",
-    authorName: "Tim Pendidik Wissen-Kids",
+    authorName: "Tim Pendidik Wissen Kids Center",
     readTime: "4 menit baca",
     isPublished: true,
     publishedAt: "2026-03-01"
@@ -486,7 +566,7 @@ Pada usia 2 hingga 4 tahun, otak anak membentuk jutaan koneksi saraf baru setiap
 Fokus stimulasi utama meliputi eksplorasi sensori tekstur, melatih keseimbangan tubuh, mengajarkan pengenalan emosi dasar, dan memberikan kesempatan anak mencoba memakai sepatu atau merapikan mainan sendiri.
     `,
     coverImageUrl: "https://images.unsplash.com/photo-1587654780291-39c9404d746b?auto=format&fit=crop&q=80&w=800",
-    authorName: "Psikolog Anak Wissen-Kids",
+    authorName: "Psikolog Anak Wissen Kids Center",
     readTime: "3 menit baca",
     isPublished: true,
     publishedAt: "2026-02-10"
@@ -523,7 +603,7 @@ export const galleryData: GalleryItem[] = [
     title: "Pentas Kreasi & Pameran Karya Art & Craft",
     category: "Event & Pentas",
     mediaUrl: "https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&q=80&w=800",
-    caption: "Apresiasi hasil lukisan gradasi dan kerajinan tangan murid Wissen-Kids.",
+    caption: "Apresiasi hasil lukisan gradasi dan kerajinan tangan murid Wissen Kids Center.",
     date: "2026-02-15"
   },
   {
@@ -548,13 +628,13 @@ export const faqsData: FAQItem[] = [
   {
     id: "faq-1",
     question: "Apakah tersedia program Free Trial (Coba Kelas Gratis) sebelum mendaftar?",
-    answer: "Ya, Wissen-Kids menyediakan 1 sesi Free Trial gratis untuk calon murid baru. Tujuannya agar anak dapat merasakan langsung suasana kelas, berinteraksi dengan guru, dan tim kami dapat melakukan pemetaan kemampuan (diagnostic assessment) untuk merekomendasikan level yang paling sesuai.",
+    answer: "Ya, Wissen Kids Center menyediakan 1 sesi Free Trial gratis untuk calon murid baru. Tujuannya agar anak dapat merasakan langsung suasana kelas, berinteraksi dengan guru, dan tim kami dapat melakukan pemetaan kemampuan (diagnostic assessment) untuk merekomendasikan level yang paling sesuai.",
     category: "Pendaftaran & Trial",
     orderIndex: 1
   },
   {
     id: "faq-2",
-    question: "Mulai usia berapa anak bisa bergabung di Wissen-Kids?",
+    question: "Mulai usia berapa anak bisa bergabung di Wissen Kids Center?",
     answer: "Anak dapat bergabung mulai usia 2 tahun di program 'Simulation & Activity'. Kami memiliki rentang program lengkap dan terstruktur hingga siswa tingkat 9 SMP (usia 15 tahun).",
     category: "Program & Metode",
     orderIndex: 2
@@ -569,7 +649,7 @@ export const faqsData: FAQItem[] = [
   {
     id: "faq-4",
     question: "Apakah tersedia pilihan kelas privat 1-on-1?",
-    answer: "Tentu saja! Kami menyediakan program Kelas Privat 1 Guru 1 Murid baik belajar di cabang Wissen-Kids maupun opsi Home Visit (guru datang ke rumah) dengan jadwal fleksibel.",
+    answer: "Tentu saja! Kami menyediakan program Kelas Privat 1 Guru 1 Murid baik belajar di cabang Wissen Kids Center maupun opsi Home Visit (guru datang ke rumah) dengan jadwal fleksibel.",
     category: "Biaya & Jadwal",
     orderIndex: 4
   },
@@ -582,7 +662,7 @@ export const faqsData: FAQItem[] = [
   },
   {
     id: "faq-6",
-    question: "Bagaimana sistem pembayaran biaya les di Wissen-Kids?",
+    question: "Bagaimana sistem pembayaran biaya les di Wissen Kids Center?",
     answer: "Pembayaran dilakukan secara bulanan atau paket semester via transfer bank/QRIS resmi bimbel. Kami tidak membebankan biaya tersembunyi; modul buku belajar dan lembar kerja sudah termasuk dalam paket.",
     category: "Biaya & Jadwal",
     orderIndex: 6

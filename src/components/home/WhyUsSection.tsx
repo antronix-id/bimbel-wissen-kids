@@ -7,6 +7,7 @@ import {
   GraduationCap, 
   Home 
 } from "lucide-react";
+import { CardBackground } from "@/components/ui/card";
 
 const reasons = [
   {
@@ -55,36 +56,39 @@ const reasons = [
 
 export default function WhyUsSection() {
   return (
-    <section className="py-16 sm:py-24 bg-white relative">
+    <section className="py-16 sm:py-24 bg-transparent relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14">
-          <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
+        <div className="text-center max-w-3xl mx-auto mb-12">
+          <h2 className="text-2xl sm:text-3xl font-black text-black tracking-tight">
             Mengapa Ratusan Orang Tua Mempercayakan Anaknya di{" "}
-            <span className="text-blue-600">Wissen-Kids</span>?
+            <span className="text-blue-600">Wissen Kids Center</span>?
           </h2>
-          <p className="text-slate-600 text-sm sm:text-base mt-3 leading-relaxed">
+          <p className="text-black font-semibold text-sm sm:text-base mt-2.5 leading-relaxed">
             Kombinasi kurikulum teruji, tutor telaten, dan atmosfer ceria yang membuat proses belajar terasa seperti petualangan menyenangkan.
           </p>
         </div>
 
         {/* 6 Reasons Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-7">
           {reasons.map((item, idx) => (
             <div
               key={idx}
-              className={`p-7 rounded-3xl bg-slate-50/70 border border-slate-200/70 hover:bg-white hover:border-blue-300 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col`}
+              className="p-5 sm:p-7 card-elevation card-elevation-hover relative overflow-hidden flex flex-col"
             >
-              <div className={`w-12 h-12 rounded-2xl ${item.bg} ${item.border} border flex items-center justify-center mb-5 shadow-xs`}>
-                {item.icon}
+              <CardBackground rows={10} cols={8} tileSize="md" />
+              <div className="relative z-10">
+                <div className={`w-11 h-11 rounded-2xl ${item.bg} ${item.border} border flex items-center justify-center mb-4 shadow-xs`}>
+                  {item.icon}
+                </div>
+                <h3 className="text-base sm:text-lg font-black text-black mb-2">
+                  {item.title}
+                </h3>
+                <p className="text-xs sm:text-sm text-black font-medium leading-relaxed">
+                  {item.desc}
+                </p>
               </div>
-              <h3 className="text-lg font-bold text-slate-900 mb-2">
-                {item.title}
-              </h3>
-              <p className="text-sm text-slate-600 leading-relaxed">
-                {item.desc}
-              </p>
             </div>
           ))}
         </div>

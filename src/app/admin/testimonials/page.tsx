@@ -171,7 +171,7 @@ export default function AdminTestimonialsPage() {
                   required
                   value={form.reviewText}
                   onChange={(e) => setForm({ ...form, reviewText: e.target.value })}
-                  placeholder="Kesan dan pesan selama belajar di Wissen-Kids..."
+                  placeholder="Kesan dan pesan selama belajar di Wissen Kids Center..."
                   className="w-full p-2.5 text-xs rounded-xl bg-slate-50 border border-slate-200"
                 />
               </div>
