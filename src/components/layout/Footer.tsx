@@ -137,12 +137,12 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/testimoni" className="hover:text-blue-400 transition-colors">
+                <Link href="/#testimoni" className="hover:text-blue-400 transition-colors">
                   Kisah & Testimoni Wali Murid
                 </Link>
               </li>
               <li>
-                <Link href="/faq" className="hover:text-blue-400 transition-colors">
+                <Link href="/#faq" className="hover:text-blue-400 transition-colors">
                   Pertanyaan Sering Diajukan (FAQ)
                 </Link>
               </li>
@@ -200,11 +200,15 @@ export default function Footer() {
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
           <p>© {new Date().getFullYear()} Wissen-Kids. All rights reserved. Bimbingan Belajar Usia 2 Tahun - SMP.</p>
           <div className="flex items-center gap-4">
-            <Link href="/faq" className="hover:text-slate-400 transition-colors">Syarat & Ketentuan</Link>
+            <Link href="/#faq" className="hover:text-slate-400 transition-colors">Syarat & Ketentuan</Link>
             <span>•</span>
-            <Link href="/faq" className="hover:text-slate-400 transition-colors">Kebijakan Privasi</Link>
+            <Link href="/#faq" className="hover:text-slate-400 transition-colors">Kebijakan Privasi</Link>
             <span>•</span>
             <Link href="/daftar" className="hover:text-slate-400 transition-colors">Booking Konsultasi</Link>
+            <span>•</span>
+            <Link href="/admin/login" className="hover:text-slate-300 font-semibold text-slate-400 transition-colors">
+              Admin CMS
+            </Link>
           </div>
         </div>
       </div>

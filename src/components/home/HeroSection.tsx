@@ -1,17 +1,11 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { 
   Sparkles, 
   ArrowRight, 
-  ShieldCheck, 
-  Star, 
-  Users, 
-  CheckCircle2, 
-  Heart,
-  Award,
-  PlayCircle
+  CheckCircle2 
 } from "lucide-react";
-import { siteSettings } from "@/data/mockData";
 
 export default function HeroSection() {
   return (
@@ -74,95 +68,18 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* Kolom Visual Kanan */}
+          {/* Kolom Visual Kanan: Card Polos Bersih */}
           <div className="lg:col-span-5 relative">
             <div className="relative mx-auto max-w-md lg:max-w-none">
-              
-              {/* Main Visual Card */}
-              <div className="relative bg-white rounded-3xl p-6 sm:p-8 shadow-2xl border border-slate-200/80 overflow-hidden">
-                <div className="absolute top-0 right-0 w-36 h-36 bg-amber-100 rounded-bl-full -z-0 opacity-60" />
-                
-                {/* Header Banner Inside Card */}
-                <div className="flex items-center justify-between gap-3 mb-6 relative z-10">
-                  <div className="flex items-center gap-2">
-                    <span className="w-3 h-3 rounded-full bg-emerald-500 animate-ping" />
-                    <span className="text-xs font-bold uppercase tracking-wider text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full">
-                      Free Trial Tersedia
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-1 text-amber-500 text-xs font-bold">
-                    <Star className="w-4 h-4 fill-current" />
-                    <span>4.9 / 5.0 Rating Ortu</span>
-                  </div>
-                </div>
-
-                {/* Hero Feature Showcase */}
-                <div className="space-y-4 relative z-10">
-                  <div className="p-4 rounded-2xl bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-100 flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-blue-600 text-white flex items-center justify-center font-black text-lg shrink-0 shadow-md">
-                      10+
-                    </div>
-                    <div>
-                      <p className="font-extrabold text-sm text-slate-900">Program Belajar Lengkap</p>
-                      <p className="text-xs text-slate-600">Stimulasi Sensori, Calistung, Sempoa, Mengaji, SD & SMP</p>
-                    </div>
-                  </div>
-
-                  <div className="p-4 rounded-2xl bg-gradient-to-br from-amber-50 to-orange-50 border border-amber-100 flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-amber-500 text-white flex items-center justify-center font-bold text-lg shrink-0 shadow-md">
-                      2-15
-                    </div>
-                    <div>
-                      <p className="font-extrabold text-sm text-slate-900">Kelompok Usia Fleksibel</p>
-                      <p className="text-xs text-slate-600">Pendampingan disesuaikan dengan tahapan tumbuh kembang anak</p>
-                    </div>
-                  </div>
-
-                  <div className="p-4 rounded-2xl bg-gradient-to-br from-emerald-50 to-teal-50 border border-emerald-100 flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-emerald-500 text-white flex items-center justify-center font-bold text-lg shrink-0 shadow-md">
-                      100%
-                    </div>
-                    <div>
-                      <p className="font-extrabold text-sm text-slate-900">Metode Fun Learning</p>
-                      <p className="text-xs text-slate-600">Belajar aktif tanpa paksaan, menumbuhkan rasa ingin tahu</p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Quick Consultation CTA */}
-                <div className="mt-6 pt-5 border-t border-slate-100 flex items-center justify-between gap-2 relative z-10">
-                  <div>
-                    <p className="text-xs text-slate-500">Konsultasi cepat wali murid:</p>
-                    <p className="text-sm font-black text-slate-800">{siteSettings.displayPhone}</p>
-                  </div>
-                  <Link
-                    href="/daftar"
-                    className="px-4 py-2 rounded-xl bg-amber-500 hover:bg-amber-600 text-slate-950 font-extrabold text-xs transition-colors shadow-xs"
-                  >
-                    Booking Sesi →
-                  </Link>
-                </div>
+              <div className="relative h-[380px] sm:h-[460px] w-full rounded-3xl overflow-hidden shadow-2xl border border-slate-200/80 bg-white">
+                <Image
+                  src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&q=80&w=1000"
+                  alt="Suasana belajar cerdas dan ceria anak-anak di Wissen-Kids"
+                  fill
+                  priority
+                  className="object-cover"
+                />
               </div>
-
-              {/* Floating Achievement Tag 1 */}
-              <div className="absolute -bottom-5 -left-5 bg-white py-2.5 px-4 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-2.5 hidden sm:flex">
-                <div className="p-2 rounded-xl bg-emerald-100 text-emerald-700">
-                  <Award className="w-4 h-4" />
-                </div>
-                <div className="text-left">
-                  <p className="text-[11px] font-bold text-slate-900">98% Murid Naik Nilai</p>
-                  <p className="text-[10px] text-slate-500">Evaluasi Rapor Semester</p>
-                </div>
-              </div>
-
-              {/* Floating Achievement Tag 2 */}
-              <div className="absolute -top-4 -right-4 bg-white py-2 px-3.5 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-2 hidden sm:flex">
-                <div className="p-1.5 rounded-lg bg-pink-100 text-pink-600">
-                  <Heart className="w-4 h-4 fill-current" />
-                </div>
-                <span className="text-xs font-bold text-slate-800">Tutor Bersertifikasi</span>
-              </div>
-
             </div>
           </div>
 

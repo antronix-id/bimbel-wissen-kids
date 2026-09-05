@@ -6,28 +6,18 @@ import { testimonialsData } from "@/data/mockData";
 
 export default function TestimonialSection() {
   return (
-    <section className="py-16 sm:py-24 bg-gradient-to-b from-slate-50 to-blue-50/40 relative overflow-hidden">
+    <section id="testimoni" className="py-16 sm:py-24 bg-gradient-to-b from-slate-50 to-blue-50/40 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
-          <div>
-            <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
-              Kata Orang Tua Tentang{" "}
-              <span className="text-blue-600">Wissen-Kids</span>
-            </h2>
-            <p className="text-slate-600 text-sm sm:text-base mt-2 max-w-xl">
-              Kepuasan nyata dari Ayah & Bunda yang telah menyaksikan langsung transformasi positif putra-putrinya.
-            </p>
-          </div>
-
-          <Link
-            href="/testimoni"
-            className="inline-flex items-center gap-1.5 text-sm font-bold text-blue-600 hover:text-blue-700 bg-white hover:bg-blue-50 px-4 py-2.5 rounded-xl border border-slate-200 transition-colors shrink-0 shadow-xs"
-          >
-            <span>Lihat Semua Ulasan</span>
-            <ArrowRight className="w-4 h-4" />
-          </Link>
+        <div className="text-center max-w-2xl mx-auto mb-12">
+          <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
+            Kata Orang Tua Tentang{" "}
+            <span className="text-blue-600">Wissen-Kids</span>
+          </h2>
+          <p className="text-slate-600 text-sm sm:text-base mt-2">
+            Kepuasan nyata dari Ayah & Bunda yang telah menyaksikan langsung transformasi positif putra-putrinya.
+          </p>
         </div>
 
         {/* Testimonials Grid */}

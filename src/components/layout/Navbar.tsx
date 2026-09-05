@@ -9,8 +9,7 @@ import {
   Sparkles, 
   PhoneCall, 
   GraduationCap, 
-  ChevronRight,
-  ShieldAlert
+  ChevronRight
 } from "lucide-react";
 import { siteSettings } from "@/data/mockData";
 
@@ -20,8 +19,6 @@ const navLinks = [
   { href: "/tentang-kami", label: "Tentang Kami" },
   { href: "/galeri", label: "Galeri & Fasilitas" },
   { href: "/artikel", label: "Tips Edukasi" },
-  { href: "/testimoni", label: "Testimoni" },
-  { href: "/faq", label: "FAQ" },
 ];
 
 export default function Navbar() {
@@ -56,16 +53,9 @@ export default function Navbar() {
           <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 via-indigo-600 to-amber-400 flex items-center justify-center text-white shadow-md shadow-blue-500/20 group-hover:scale-105 transition-transform">
             <GraduationCap className="w-6 h-6" />
           </div>
-          <div className="flex flex-col">
-            <div className="flex items-center gap-1">
-              <span className="text-xl font-extrabold tracking-tight text-slate-900 group-hover:text-blue-600 transition-colors">
-                Wissen<span className="text-amber-500">-Kids</span>
-              </span>
-            </div>
-            <span className="text-[10px] font-semibold text-slate-500 tracking-wider uppercase -mt-0.5">
-              Bimbel Usia 2 Thn - SMP
-            </span>
-          </div>
+          <span className="text-xl font-extrabold tracking-tight text-slate-900 group-hover:text-blue-600 transition-colors">
+            Wissen<span className="text-amber-500">-Kids</span>
+          </span>
         </Link>
 
         {/* Desktop Nav Links */}
@@ -90,15 +80,6 @@ export default function Navbar() {
 
         {/* Desktop CTA Action Buttons */}
         <div className="hidden lg:flex items-center gap-3">
-          <Link
-            href="/admin"
-            title="Masuk ke Panel Pengelola"
-            className="text-xs font-semibold text-slate-500 hover:text-blue-600 px-2.5 py-1.5 rounded-md hover:bg-slate-100 transition-colors flex items-center gap-1"
-          >
-            <ShieldAlert className="w-3.5 h-3.5" />
-            <span>Admin</span>
-          </Link>
-
           <Link
             href="/daftar"
             className="relative inline-flex items-center justify-center px-5 py-2.5 rounded-full text-sm font-bold text-white bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 shadow-md shadow-blue-500/25 hover:shadow-lg hover:shadow-blue-500/35 hover:-translate-y-0.5 transition-all duration-200 gap-2"
@@ -167,13 +148,6 @@ export default function Navbar() {
               <PhoneCall className="w-4 h-4 text-emerald-600" />
               <span>Chat WhatsApp: {siteSettings.displayPhone}</span>
             </a>
-
-            <Link
-              href="/admin"
-              className="text-center text-xs text-slate-400 hover:text-slate-600 py-1"
-            >
-              Panel Admin CMS →
-            </Link>
           </div>
         </div>
       )}
